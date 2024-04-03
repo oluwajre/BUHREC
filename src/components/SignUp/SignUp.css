@@ -1,0 +1,55 @@
+#s-wrapper{
+    background: #0299EA;
+}
+
+#s-right{
+    border-radius: 65px 0 0 0;
+    background-color: var(--lightBlue);
+    align-items: center;
+    /* align-items: flex-start; */
+}
+
+#signUpPage{
+    width: 80%;
+}
+
+.signUpForm{
+    width: 100%;
+}
+
+.form-group{
+    width: 100%;
+    gap: 2rem;
+}
+
+.sign-up-content{
+    border: 1px solid black;
+    border-radius: 3px;
+    padding-left: .2em;
+    transition: all 300ms ease-in;
+}
+
+.sign-up-content:focus-within{
+    border: 1px solid orange;
+}
+
+#sign-up-label{
+    font-size: .9rem;
+    color: inherit;
+}
+
+.title{
+    position: relative;
+    width: 100%;
+    border-top: 2px solid black;
+}
+
+.title>p{
+    position: absolute;
+    background-color: var(--lightBlue);
+}
+
+
+#terms{
+    line-height: 5rem;
+}

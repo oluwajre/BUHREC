@@ -1,0 +1,78 @@
+a:hover{
+    text-decoration: underline;
+}
+
+#login-container{
+    background: var(--lightBlue);
+}
+
+.l-container{
+    /* background: white; */
+    width: 100vw;
+    justify-content: space-between;
+}
+
+.l-left{
+    width: 50%;
+}
+
+.login-image-container{
+    width: 100%;
+    height: 100vh;
+}
+
+.login-image-container>img{
+    position: relative;
+    width: 100%;
+    object-fit: cover;
+}
+
+.signup-phrase{
+    position: absolute;
+    top: 5px;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--lightBlue);
+}
+
+.l-right{
+    width: 50%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.login-page{
+    justify-content: center;
+    width: 60%;
+    gap: 2rem;
+}
+.back{
+    margin-bottom: 2rem;
+}
+.link:hover{
+    cursor: pointer;
+    color: orange;
+}
+
+.login-page .form-content{
+    width: 100%;
+}
+
+
+
+.form{
+    gap: 1.5rem;
+}
+
+.extra-info{
+    justify-content: space-between;
+    gap: 6rem;
+    font-weight: 500;
+}
+
+.sign-up{
+    width: 100%;
+    justify-content: space-around;
+}
+
+

@@ -9,14 +9,19 @@ import IconButton from '@mui/material/IconButton';
 
 const LANGS = [
   {
-    value: 'en',
+    value: 'ng',
     label: 'English',
-    icon: '/assets/icons/ic_flag_en.svg',
+    icon: '/assets/icons/nigeria-flag-icon.svg',
   },
   {
     value: 'de',
     label: 'German',
     icon: '/assets/icons/ic_flag_de.svg',
+  },
+  {
+    value: 'en',
+    label: 'English',
+    icon: '/assets/icons/ic_flag_en.svg',
   },
   {
     value: 'fr',

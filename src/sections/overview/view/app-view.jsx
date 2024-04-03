@@ -4,17 +4,17 @@ import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
-import Iconify from 'src/components/iconify';
+// import Iconify from 'src/components/iconify';
 
-import AppTasks from '../app-tasks';
+// import AppTasks from '../app-tasks';
 import AppNewsUpdate from '../app-news-update';
 import AppOrderTimeline from '../app-order-timeline';
-import AppCurrentVisits from '../app-current-visits';
+// import AppCurrentVisits from '../app-current-visits';
 import AppWebsiteVisits from '../app-website-visits';
 import AppWidgetSummary from '../app-widget-summary';
-import AppTrafficBySite from '../app-traffic-by-site';
-import AppCurrentSubject from '../app-current-subject';
-import AppConversionRates from '../app-conversion-rates';
+// import AppTrafficBySite from '../app-traffic-by-site';
+// import AppCurrentSubject from '../app-current-subject';
+// import AppConversionRates from '../app-conversion-rates';
 
 // ----------------------------------------------------------------------
 
@@ -62,49 +62,49 @@ export default function AppView() {
           />
         </Grid>
 
-        <Grid xs={12} md={6} lg={8}>
+        <Grid xs={12} md={6} lg={12}>
           <AppWebsiteVisits
-            title="Website Visits"
-            subheader="(+43%) than last year"
+            title="Reasearches"
+            subheader="(+0.01%) than last year"
             chart={{
               labels: [
-                '01/01/2003',
-                '02/01/2003',
-                '03/01/2003',
-                '04/01/2003',
-                '05/01/2003',
-                '06/01/2003',
-                '07/01/2003',
-                '08/01/2003',
-                '09/01/2003',
-                '10/01/2003',
-                '11/01/2003',
+                '01/01/2024',
+                '02/01/2024',
+                '03/01/2024',
+                '04/01/2024',
+                '05/01/2024',
+                '06/01/2024',
+                '07/01/2024',
+                '08/01/2024',
+                '09/01/2024',
+                '10/01/2024',
+                '11/01/2024',
               ],
               series: [
                 {
                   name: 'Team A',
                   type: 'column',
                   fill: 'solid',
-                  data: [23, 11, 22, 27, 13, 22, 37, 21, 44, 22, 30],
+                  data: [1, 3, 5, 2, 7, 12, 4, 4, 1, 12, 2],
                 },
-                {
-                  name: 'Team B',
-                  type: 'area',
-                  fill: 'gradient',
-                  data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
-                },
-                {
-                  name: 'Team C',
-                  type: 'line',
-                  fill: 'solid',
-                  data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
-                },
+                // {
+                //   name: 'Team B',
+                //   type: 'area',
+                //   fill: 'gradient',
+                //   data: [44, 55, 41, 67, 22, 43, 21, 41, 56, 27, 43],
+                // },
+                // {
+                //   name: 'Team C',
+                //   type: 'line',
+                //   fill: 'solid',
+                //   data: [30, 25, 36, 30, 45, 35, 64, 52, 59, 36, 39],
+                // },
               ],
             }}
           />
         </Grid>
 
-        <Grid xs={12} md={6} lg={4}>
+        {/* <Grid xs={12} md={6} lg={4}>
           <AppCurrentVisits
             title="Current Visits"
             chart={{
@@ -116,9 +116,9 @@ export default function AppView() {
               ],
             }}
           />
-        </Grid>
+        </Grid> */}
 
-        <Grid xs={12} md={6} lg={8}>
+        {/* <Grid xs={12} md={6} lg={8}>
           <AppConversionRates
             title="Conversion Rates"
             subheader="(+43%) than last year"
@@ -137,9 +137,9 @@ export default function AppView() {
               ],
             }}
           />
-        </Grid>
+        </Grid> */}
 
-        <Grid xs={12} md={6} lg={4}>
+        {/* <Grid xs={12} md={6} lg={4}>
           <AppCurrentSubject
             title="Current Subject"
             chart={{
@@ -151,11 +151,11 @@ export default function AppView() {
               ],
             }}
           />
-        </Grid>
+        </Grid> */}
 
         <Grid xs={12} md={6} lg={8}>
           <AppNewsUpdate
-            title="News Update"
+            title="Review Update"
             list={[...Array(5)].map((_, index) => ({
               id: faker.string.uuid(),
               title: faker.person.jobTitle(),
@@ -168,7 +168,7 @@ export default function AppView() {
 
         <Grid xs={12} md={6} lg={4}>
           <AppOrderTimeline
-            title="Order Timeline"
+            title="Activity"
             list={[...Array(5)].map((_, index) => ({
               id: faker.string.uuid(),
               title: [
@@ -184,7 +184,7 @@ export default function AppView() {
           />
         </Grid>
 
-        <Grid xs={12} md={6} lg={4}>
+        {/* <Grid xs={12} md={6} lg={4}>
           <AppTrafficBySite
             title="Traffic by Site"
             list={[
@@ -210,9 +210,9 @@ export default function AppView() {
               },
             ]}
           />
-        </Grid>
+        </Grid> */}
 
-        <Grid xs={12} md={6} lg={8}>
+        {/* <Grid xs={12} md={6} lg={8}>
           <AppTasks
             title="Tasks"
             list={[
@@ -223,7 +223,7 @@ export default function AppView() {
               { id: '5', name: 'Sprint Showcase' },
             ]}
           />
-        </Grid>
+        </Grid> */}
       </Grid>
     </Container>
   );
