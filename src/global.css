@@ -132,7 +132,7 @@
     color: var(--black);
     background: var(--lightBlue);
     left: 4px;
-    top: 2px;
+    top: 0px;
     transition: all 300ms ease-in;
   }
   

@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-// import { ToastContainer } from 'react-toastify';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 
@@ -17,6 +16,5 @@ root.render(
         <App />
       </Suspense>
     </BrowserRouter>
-    {/* <ToastContainer /> */}
   </HelmetProvider>
 );

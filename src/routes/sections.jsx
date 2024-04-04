@@ -1,18 +1,23 @@
+/* eslint-disable */
 import { lazy, Suspense } from 'react';
 import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 
-import DashboardLayout from 'src/layouts/dashboard';
+//Researcher Dashboard Layout
+import ResearcherDashboardLayout from 'src/reasearcher/layouts/dashboard';
 
-export const LandingPage = lazy(() => import('src/pages/LandingPage'));
+//Reviewer Dashboard Layout (Uncomment Below)
+// import ReviewerDashboardLayout from 'src/reviewer/layouts/dashboard';
+
+export const LandingPage = lazy(() => import('src/static/pages/LandingPage'));
+export const SignUpPage = lazy(() => import('src/static/pages/SignUpPage'));
+export const LoginPage = lazy(() => import('src/static/pages/login'));
 // export const IndexPage = lazy(() => import('src/pages/app'));
-export const UserDashboardPage = lazy(() => import('src/pages/UserDashboard'))
-export const BlogPage = lazy(() => import('src/pages/blog'));
-export const UserPage = lazy(() => import('src/pages/user'));
-export const LoginPage = lazy(() => import('src/pages/login'));
-export const SignUpPage = lazy(() => import('src/pages/SignUpPage'));
-export const ProductsPage = lazy(() => import('src/pages/products'));
-export const ReuploadPage = lazy(() => import('src/pages/ReuploadPage'));
-export const Page404 = lazy(() => import('src/pages/page-not-found'));
+export const ReasearcherDashboardPage = lazy(() => import('src/reasearcher/pages/ResearcherDashboard'))
+export const MyResearchPage = lazy(() => import('src/reasearcher/pages/MyResearch'));
+export const ResearchPaymentHistoryPage = lazy(() => import('src/reasearcher/pages/ResearchPayment'));
+export const ResearchUploadPage = lazy(() => import('src/reasearcher/pages/ResearchUpload'));
+export const ReuploadPage = lazy(() => import('src/reasearcher/pages/ReUploadPage'));
+export const Page404 = lazy(() => import('src/static/pages/page-not-found'));
 
 // ----------------------------------------------------------------------
 
@@ -24,18 +29,18 @@ export default function Router() {
     },
     {
       element: (
-        <DashboardLayout>
+        <ResearcherDashboardLayout>
           <Suspense>
             <Outlet />
           </Suspense>
-        </DashboardLayout>
+        </ResearcherDashboardLayout>
       ),
       children: [
         // { element: <IndexPage />, index: true },
-        { path: 'dashboard', element: <UserDashboardPage /> },
-        { path: 'payments', element: <UserPage /> },
-        { path: 'upload', element: <ProductsPage /> },
-        { path: 'resarches', element: <BlogPage /> },
+        { path: 'dashboard', element: <ReasearcherDashboardPage /> },
+        { path: 'payments', element: <ResearchPaymentHistoryPage /> },
+        { path: 'upload', element: <ResearchUploadPage /> },
+        { path: 'resarches', element: <MyResearchPage /> },
         { path: 'reupload', element: <ReuploadPage />},
       ],
     },
