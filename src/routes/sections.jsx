@@ -11,6 +11,7 @@ export const UserPage = lazy(() => import('src/pages/user'));
 export const LoginPage = lazy(() => import('src/pages/login'));
 export const SignUpPage = lazy(() => import('src/pages/SignUpPage'));
 export const ProductsPage = lazy(() => import('src/pages/products'));
+export const ReuploadPage = lazy(() => import('src/pages/ReuploadPage'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 
 // ----------------------------------------------------------------------
@@ -35,6 +36,7 @@ export default function Router() {
         { path: 'payments', element: <UserPage /> },
         { path: 'upload', element: <ProductsPage /> },
         { path: 'resarches', element: <BlogPage /> },
+        { path: 'reupload', element: <ReuploadPage />},
       ],
     },
     {
