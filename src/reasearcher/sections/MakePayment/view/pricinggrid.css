@@ -1,0 +1,33 @@
+.pricing-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  
+  .pricing-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    margin: 10px;
+    background-color: #007bff;
+    border-radius: 3px;
+  }
+  
+  .pricing-card.highlighted {
+    border-color: #007bff;
+    background-color: #f5f5f5;
+  }
+  
+  .price {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }

@@ -79,9 +79,9 @@ export default function MyResearchView() {
 
   const [selected, setSelected] = useState([]);
 
-  const [orderBy, setOrderBy] = useState('name');
+  const [orderBy, setOrderBy] = useState('title');
 
-  const [filterName, setFilterName] = useState('');
+  const [filterTitle, setFilterTitle] = useState('');
 
   const [rowsPerPage, setRowsPerPage] = useState(5);
 
@@ -95,18 +95,18 @@ export default function MyResearchView() {
 
   const handleSelectAllClick = (event) => {
     if (event.target.checked) {
-      const newSelecteds = researches.map((n) => n.name);
+      const newSelecteds = researches.map((n) => n.title);
       setSelected(newSelecteds);
       return;
     }
     setSelected([]);
   };
 
-  const handleClick = (event, name) => {
-    const selectedIndex = selected.indexOf(name);
+  const handleClick = (event, title) => {
+    const selectedIndex = selected.indexOf(title);
     let newSelected = [];
     if (selectedIndex === -1) {
-      newSelected = newSelected.concat(selected, name);
+      newSelected = newSelected.concat(selected, title);
     } else if (selectedIndex === 0) {
       newSelected = newSelected.concat(selected.slice(1));
     } else if (selectedIndex === selected.length - 1) {
@@ -129,18 +129,18 @@ export default function MyResearchView() {
     setRowsPerPage(parseInt(event.target.value, 10));
   };
 
-  const handleFilterByName = (event) => {
+  const handleFilterByTitle = (event) => {
     setPage(0);
-    setFilterName(event.target.value);
+    setFilterTitle(event.target.value);
   };
 
   const dataFiltered = applyFilter({
     inputData: researches,
     comparator: getComparator(order, orderBy),
-    filterName,
+    filterTitle,
   });
 
-  const notFound = !dataFiltered.length && !!filterName;
+  const notFound = !dataFiltered.length && !!filterTitle;
 
   return (
     <Container>
@@ -152,8 +152,8 @@ export default function MyResearchView() {
       <Card>
         <UserTableToolbar
           numSelected={selected.length}
-          filterName={filterName}
-          onFilterName={handleFilterByName}
+          filterTitle={filterTitle}
+          onFilterTitle={handleFilterByTitle}
         />
 
         <Scrollbar>
@@ -167,7 +167,7 @@ export default function MyResearchView() {
                 onRequestSort={handleSort}
                 onSelectAllClick={handleSelectAllClick}
                 headLabel={[
-                  { id: 'name', label: 'Title' },
+                  { id: 'title', label: 'Title' },
                   { id: 'status', label: 'Status' },
                   
                   { id: '' },
@@ -179,10 +179,10 @@ export default function MyResearchView() {
                   .map((row) => (
                     <UserTableRow
                       key={row.id}
-                      name={row.name}
+                      title={row.title}
                       status={row.status}
-                      selected={selected.indexOf(row.name) !== -1}
-                      handleClick={(event) => handleClick(event, row.name)}
+                      selected={selected.indexOf(row.title) !== -1}
+                      handleClick={(event) => handleClick(event, row.title)}
                     />
                   ))}
 
@@ -191,7 +191,7 @@ export default function MyResearchView() {
                   emptyRows={emptyRows(page, rowsPerPage, researches.length)}
                 />
 
-                {notFound && <TableNoData query={filterName} />}
+                {notFound && <TableNoData query={filterTitle} />}
               </TableBody>
             </Table>
           </TableContainer>

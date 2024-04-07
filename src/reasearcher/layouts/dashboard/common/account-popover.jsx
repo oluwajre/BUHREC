@@ -1,5 +1,6 @@
+/*eslint-disable*/
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import Avatar from '@mui/material/Avatar';
 import Divider from '@mui/material/Divider';
@@ -12,10 +13,12 @@ import IconButton from '@mui/material/IconButton';
 import { account } from 'src/reasearcher/_mock/account';
 // ----------------------------------------------------------------------
 
+
 const MENU_OPTIONS = [
   {
     label: 'Home',
     icon: 'eva:home-fill',
+    path: '/dashboard',
   },
   {
     label: 'Profile',
@@ -95,7 +98,7 @@ export default function AccountPopover() {
 
         {MENU_OPTIONS.map((option) => (
           <MenuItem key={option.label} onClick={handleClose}>
-            {option.label}
+            <Link to={option.path}>{option.label}</Link>
           </MenuItem>
         ))}
 

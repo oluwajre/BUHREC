@@ -7,11 +7,11 @@ import Typography from '@mui/material/Typography';
 // import Iconify from 'src/components/iconify';
 
 // import AppTasks from '../app-tasks';
-import AppNewsUpdate from '../app-news-update';
+// import AppNewsUpdate from '../app-news-update';
 import AppOrderTimeline from '../app-order-timeline';
 // import AppCurrentVisits from '../app-current-visits';
 import AppWebsiteVisits from '../app-website-visits';
-import AppWidgetSummary from '../app-widget-summary';
+// import AppWidgetSummary from '../app-widget-summary';
 // import AppTrafficBySite from '../app-traffic-by-site';
 // import AppCurrentSubject from '../app-current-subject';
 // import AppConversionRates from '../app-conversion-rates';
@@ -26,7 +26,7 @@ export default function AppView() {
       </Typography>
 
       <Grid container spacing={3}>
-        <Grid xs={12} sm={6} md={3}>
+        {/* <Grid xs={12} sm={6} md={3}>
           <AppWidgetSummary
             title="Weekly Sales"
             total={714000}
@@ -60,7 +60,7 @@ export default function AppView() {
             color="error"
             icon={<img alt="icon" src="/assets/icons/glass/ic_glass_message.png" />}
           />
-        </Grid>
+        </Grid> */}
 
         <Grid xs={12} md={6} lg={12}>
           <AppWebsiteVisits
@@ -79,13 +79,15 @@ export default function AppView() {
                 '09/01/2024',
                 '10/01/2024',
                 '11/01/2024',
+                '12/01/2024',
+                '01/01/2025',
               ],
               series: [
                 {
                   name: 'Team A',
                   type: 'column',
                   fill: 'solid',
-                  data: [1, 3, 5, 2, 7, 12, 4, 4, 1, 12, 2],
+                  data: [1, 3, 5, 2, 7, 12, 4, 4, 1, 12, 2, 1],
                 },
                 // {
                 //   name: 'Team B',
@@ -153,7 +155,7 @@ export default function AppView() {
           />
         </Grid> */}
 
-        <Grid xs={12} md={6} lg={8}>
+        {/* <Grid xs={12} md={6} lg={8}>
           <AppNewsUpdate
             title="Review Update"
             list={[...Array(5)].map((_, index) => ({
@@ -164,21 +166,21 @@ export default function AppView() {
               postedAt: faker.date.recent(),
             }))}
           />
-        </Grid>
+        </Grid> */}
 
-        <Grid xs={12} md={6} lg={4}>
+        <Grid xs={12} md={6} lg={12}>
           <AppOrderTimeline
-            title="Activity"
+            title="Progress Bar"
             list={[...Array(5)].map((_, index) => ({
               id: faker.string.uuid(),
               title: [
-                '1983, orders, $4220',
-                '12 Invoices have been paid',
-                'Order #37745 from September',
-                'New order placed #XF-2356',
-                'New order placed #XF-2346',
+                'Pending',
+                'Reviewed',
+                'Issues',
+                'Issues',
+                'Completed',
               ][index],
-              type: `order${index + 1}`,
+              type: `progress${index + 1}`,
               time: faker.date.past(),
             }))}
           />

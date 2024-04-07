@@ -16,3 +16,11 @@
   .modal.show {
     opacity: 1; /* Add a class for showing the popup */
   }
+
+  .css-qyb2tj-MuiInputBase-root-MuiInput-root:before {
+    content: none;
+  }
+
+#title-input {
+  width: 470px;
+}

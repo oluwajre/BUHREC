@@ -12,15 +12,15 @@ const navConfig = [
     path: '/dashboard',
     icon: icon('ic_analytics'),
   },
-  {
-    title: 'Payments',
-    path: '/payments',
-    icon: icon('ic_user'),
-  },
+  // {
+  //   title: 'Payments',
+  //   path: '/payments',
+  //   icon: icon('ic_user'),
+  // },
   {
     title: 'Upload Research',
-    path: '/upload',
-    icon: icon('ic_cart'),
+    path: '/makepayment',
+    icon: icon('ic_user'),
   },
   {
     title: 'My Researches',

@@ -8,31 +8,13 @@ import Iconify from 'src/components/iconify';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { toast } from 'react-toastify';
+import './upload.css';
 // import { Modal, Fade } from '@mui/material';
 // import styles from './largepopup.module.css';
 
 export default function ReuploadView() {
   const [selectedFile, setSelectedFile] = useState(null);
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = () => setOpen(true);
-  // const handleClose = () => setOpen(false);
   
-//   const modalContent = (
-//     <Box sx={{ width: '70%', height: '50%', bgcolor: 'background.paper', p: 4, className: styles.modal }}>
-//       {/* Your popup content here */}
-//       <Typography variant="h5">Payment Information</Typography>
-//       <p>Your file has been uploaded successfully.</p>
-//       {/* Additional content, buttons, etc. */}
-//       <Button
-//       variant="contained"
-//       color="primary"
-//       onClick={() => window.location.href = "www.amazon.com"} // Redirect on click
-//     >
-//       Make Payment
-//     </Button>
-//     </Box>
-//   );
-
   const handleFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
@@ -40,11 +22,10 @@ export default function ReuploadView() {
   const handleUpload = async () => {
 
     if (!selectedFile) {
-      toast.error('Upload a File');
+      toast.error('Add the new File');
       return
     }
     else{
-      // setOpen(true);
       const formData = new FormData();
       formData.append('file', selectedFile);
   
@@ -78,10 +59,10 @@ export default function ReuploadView() {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
-          p: 4, // Padding for the box
-          border: '1px solid #ccc', // Optional border
-          borderRadius: 4, // Optional rounded corners
-          mb: 3, // Margin bottom for spacing
+          justifyContent: 'space-evenly',
+          p: 8, 
+          border: '2px dashed #ccc', 
+          mb: 5, 
         }}
       >
 
@@ -89,18 +70,22 @@ export default function ReuploadView() {
         type="file"
         variant="standard"
         onChange={handleFileChange}
-        label="Select File"
-        fullWidth
-        margin="normal"
-        sx={{ '& .MuiInputBase-root': { border: 'none' } }}
+        className='file-input'
+        
       />
       </Box>
+      <TextField
+        type="text"
+        label='Title of Research Document'
+        id='title-input'
+        disabled={true}
+      />
       </Grid>
       </Grid>
       
       <Button 
         variant="contained" 
-        style={{ backgroundColor: 'black', color: 'white' }}
+        style={{ backgroundColor: 'black', color: 'white',  marginTop: '30px' }}
         onClick={handleUpload} 
         startIcon={<Iconify icon="eva:plus-fill" />}
         // disabled={!selectedFile}
@@ -108,17 +93,6 @@ export default function ReuploadView() {
         Re-Upload
       </Button>
 
-      {/* <Modal
-      aria-labelledby="transition-modal-title"
-      aria-describedby="transition-modal-description"
-      open={open}
-      onClose={handleClose}
-      
-    >
-      <Fade in={open}>
-        {modalContent}
-      </Fade>
-    </Modal> */}
     </Container>
   );
 }

@@ -6,6 +6,7 @@ import Stack from '@mui/material/Stack';
 // import Avatar from '@mui/material/Avatar';
 import Popover from '@mui/material/Popover';
 import TableRow from '@mui/material/TableRow';
+import Button from '@mui/material/Button';
 import Checkbox from '@mui/material/Checkbox';
 import MenuItem from '@mui/material/MenuItem';
 import TableCell from '@mui/material/TableCell';
@@ -20,7 +21,7 @@ import Iconify from 'src/components/iconify';
 
 export default function UserTableRow({
   selected,
-  name,
+  title,
   status,
   handleClick,
 }) {
@@ -43,9 +44,9 @@ export default function UserTableRow({
 
         <TableCell component="th" scope="row" padding="none">
           <Stack direction="row" alignItems="center" spacing={2}>
-            {/* <Avatar alt={name} src={avatarUrl} /> */}
+            {/* <Avatar alt={title} src={avatarUrl} /> */}
             <Typography variant="subtitle2" noWrap>
-              {name}
+              {title}
             </Typography>
           </Stack>
         </TableCell>
@@ -57,6 +58,11 @@ export default function UserTableRow({
         <TableCell>
           <Label color={(status === 'pending' && 'warning') || 'success'}>{status}</Label>
         </TableCell>
+
+        <TableCell>
+          {status === 'pending'?<Button style={{visibility: 'hidden'}}>View Certificate</Button>: <Button><Link to="/certificate">View Certificate</Link></Button>}
+        </TableCell>
+        
 
 
         <TableCell align="right">
@@ -87,7 +93,7 @@ export default function UserTableRow({
 
 UserTableRow.propTypes = {
   handleClick: PropTypes.func,
-  name: PropTypes.any,
+  title: PropTypes.any,
   selected: PropTypes.any,
   status: PropTypes.string,
 };

@@ -17,6 +17,8 @@ export const MyResearchPage = lazy(() => import('src/reasearcher/pages/MyResearc
 export const ResearchPaymentHistoryPage = lazy(() => import('src/reasearcher/pages/ResearchPayment'));
 export const ResearchUploadPage = lazy(() => import('src/reasearcher/pages/ResearchUpload'));
 export const ReuploadPage = lazy(() => import('src/reasearcher/pages/ReUploadPage'));
+export const MakePaymentPage = lazy(() => import('src/reasearcher/pages/MakePayment'));
+export const CertificatePage = lazy(() => import('src/reasearcher/pages/CertificatePage'));
 export const Page404 = lazy(() => import('src/static/pages/page-not-found'));
 
 // ----------------------------------------------------------------------
@@ -42,6 +44,8 @@ export default function Router() {
         { path: 'upload', element: <ResearchUploadPage /> },
         { path: 'resarches', element: <MyResearchPage /> },
         { path: 'reupload', element: <ReuploadPage />},
+        { path: 'makepayment', element: <MakePaymentPage />},
+        { path: 'certificate', element: <CertificatePage />},
       ],
     },
     {

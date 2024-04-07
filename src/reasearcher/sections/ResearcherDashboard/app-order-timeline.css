@@ -1,0 +1,23 @@
+.timeline-item  {
+    flex-direction: column;
+}
+
+.timeline-root {
+    flex-direction: row;
+    margin: 0 auto;
+    width: max-content;
+}
+
+.timeline-separator {
+    flex-direction: row;
+}
+
+.timeline-connector {
+    height: 2px;
+    width: 200px;
+}
+
+.timeline-content {
+    position: relative;
+    left: -40px;
+}

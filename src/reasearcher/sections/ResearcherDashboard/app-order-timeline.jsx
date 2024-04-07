@@ -1,3 +1,4 @@
+/*eslint-disable*/
 import PropTypes from 'prop-types';
 
 import Card from '@mui/material/Card';
@@ -11,7 +12,7 @@ import TimelineConnector from '@mui/lab/TimelineConnector';
 import TimelineItem, { timelineItemClasses } from '@mui/lab/TimelineItem';
 
 import { fDateTime } from 'src/utils/format-time';
-
+import './app-order-timeline.css'
 // ----------------------------------------------------------------------
 
 export default function AnalyticsOrderTimeline({ title, subheader, list, ...other }) {
@@ -22,15 +23,16 @@ export default function AnalyticsOrderTimeline({ title, subheader, list, ...othe
       <Timeline
         sx={{
           m: 0,
-          p: 3,
+          p: 4,
           [`& .${timelineItemClasses.root}:before`]: {
             flex: 0,
             padding: 0,
           },
         }}
+        className='timeline-root'
       >
         {list.map((item, index) => (
-          <OrderItem key={item.id} item={item} lastTimeline={index === list.length - 1} />
+          <OrderItem key={item.id} item={item} lastTimeline={index === list.length -1} />
         ))}
       </Timeline>
     </Card>
@@ -48,21 +50,22 @@ AnalyticsOrderTimeline.propTypes = {
 function OrderItem({ item, lastTimeline }) {
   const { type, title, time } = item;
   return (
-    <TimelineItem>
-      <TimelineSeparator>
+    <TimelineItem className='timeline-item'>
+      <TimelineSeparator className='timeline-separator'>
         <TimelineDot
           color={
-            (type === 'order1' && 'primary') ||
-            (type === 'order2' && 'success') ||
-            (type === 'order3' && 'info') ||
-            (type === 'order4' && 'warning') ||
+            (type === 'progress1' && 'primary') ||
+            (type === 'progress2' && 'success') ||
+            (type === 'progress3' && 'info') ||
+            (type === 'progress4' && 'warning') ||
+            (type === 'progress5' && 'success') ||
             'error'
           }
         />
-        {lastTimeline ? null : <TimelineConnector />}
+        {lastTimeline ? null : <TimelineConnector  className='timeline-connector'/>}
       </TimelineSeparator>
 
-      <TimelineContent>
+      <TimelineContent className='timeline-content'>
         <Typography variant="subtitle2">{title}</Typography>
 
         <Typography variant="caption" sx={{ color: 'text.disabled' }}>
