@@ -6,36 +6,67 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 import './pricinggrid.css'
 
+import { usePaystackPayment } from 'react-paystack';
+
+import axios from "axios"
+
 const MakePaymentView = () => {
+  
 
-  const navigate = useNavigate();
+  const makePayment = async() =>{
+    try{
+      const res = await axios.post('http://localhost:5000/api/payForDocument', {email:'dada.stephenolamide@gmail.com'})
 
-  const makePayment = () => {
-    /*navigate to payment gateway*/
-    navigate('/upload')
-  };
 
-  // return (
-  //   <Box sx={{ width: '70%', height: '50%', p: 4, className: 'modal' }}>
-  //   <Typography variant="h4">Payment Information</Typography>
-  //   <div>
-  //     <p>Note: If you are Bsc Holder, you are to pay: <Typography variant='h6' style={{display: 'inline-block'}}>₦10,000.00</Typography></p>
-  //     <br />
-  //     <p>Note: If you are Phd Holder, you are to pay: <Typography variant='h6' style={{display: 'inline-block'}}>₦20,000.00</Typography></p>
-  //     <br />
-  //     <p>Note: If you are Masters Holder, you are to pay: <Typography variant='h6' style={{display: 'inline-block'}}>₦30,000.00</Typography></p>
-  //   </div>
-  //   {/* Additional content, buttons, etc. */}
-  //   <Button
-  //   variant="contained"
-  //   color="primary"
-  //   onClick={makePayment}
-  //   style={{marginTop: '20px'}}
-  // >
-  //   Make Payment
-  // </Button>
-  // </Box>
-  // )
+      console.log(res)
+
+      if(res.status === 200){
+        const paymentLink = res.data.authorization_url
+         window.open(paymentLink, '_self');
+      }
+    }catch(e){
+console.log(e)
+    }
+  }
+
+
+
+  
+
+
+// const verifyPayment =(ref)= async()=>{
+
+//   const res = await axios.post(`http:localhost:5000/api/verify/${ref}`)
+
+//   console.log(res)
+
+//   const status = res.status
+//   return status
+// }
+
+// you can call this function anything
+const onClose = () => {
+  // implementation for  whatever you want to do when the Paystack dialog closed.
+  console.log('closed')
+
+  // if payment verifictaion is sucessful then now close
+  // navigate him back
+
+  // else show an error that there's an issue with oayment
+
+
+  // const isVerified = verifyPayment()
+
+  // if(isVerified === 200){
+  //   // navigate the user
+  // }
+
+  // else{
+  //    console.log("issue with oayment")
+  // }
+
+}
+
   const plans = [
     {
       name: 'Bsc Holder',
@@ -51,6 +82,10 @@ const MakePaymentView = () => {
       price: '30,000',
     },
   ];
+
+
+
+  
 
   return (
     <Box sx={{ width: '100%', height: '50%', p: 4, className: 'modal' }}>
@@ -91,3 +126,86 @@ const PricingCard = ({ plan }) => {
 }
 
 export default MakePaymentView
+
+
+
+
+
+
+
+// /*eslint-disable*/
+
+
+// import React from 'react';
+// import { usePaystackPayment } from 'react-paystack';
+
+// const config = {
+//     reference: (new Date()).getTime().toString(),
+//     email: "dada.stephenolamide@gmail.com",
+//     amount: 20000, //Amount is in the country's lowest currency. E.g Kobo, so 20000 kobo = N200
+//     publicKey: 'sk_test_65973a577e38ab709fa68955a41fb14805e9d976',
+// };
+
+// // you can call this function anything
+// const onSuccess = (reference) => {
+//   // Implementation for whatever you want to do with reference and after success call.
+//   console.log(reference);
+// };
+
+// // you can call this function anything
+// const onClose = () => {
+//   // implementation for  whatever you want to do when the Paystack dialog closed.
+//   console.log('closed')
+// }
+
+// const PaystackHookExample = () => {
+//     const initializePayment = usePaystackPayment(config);
+//     return (
+//       <div>
+//           <button onClick={() => {
+//               initializePayment(onSuccess, onClose)
+//           }}>Paystack Hooks Implementation</button>
+//       </div>
+//     );
+// };
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Pay</h1>
+//       <PaystackHookExample />
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
